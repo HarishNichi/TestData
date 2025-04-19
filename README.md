@@ -1,86 +1,107 @@
-# TestData
+**Comprehensive Breakdown of 「らくらく遠離所くん」System & Demo (Manual + PPT)**
 
-🧾 避難者登録（User Registration） – Full Breakdown
-Based on the PPT, there are 4 main registration methods in the system:
+---
 
-📱 1. スマホによる登録 (Smartphone Pre-registration)
-Evacuees can scan a QRコード on the municipal website or a poster in the shelter.
+## 📚 System Overview
+**System Name**: らくらく遠離所くん (Rakuraku Hinanjo-kun)  
+**Developer**: テレネット株式会社 (Telenet Corporation)  
+**Purpose**: To support disaster shelter operation through digital management of evacuee information.
 
-They fill in the following on their own device:
+The system supports:
+- Evacuee intake and exit management
+- Pre-registration and remote registration
+- QR code and card-based data input
+- Centralized monitoring from the main disaster HQ
 
-氏名 (Name), 住所 (Address via postal code auto-fill), 生年月日, 性別
+---
 
-要配慮者情報 (Special needs), 体調 (Health condition)
+## 🔐 System Access URLs
 
-自宅の居住可否 (Habitable or not)
+| Role                | URL                                                                 |
+|---------------------|----------------------------------------------------------------------|
+| 遠離所スタッフ (Evacuation Staff)   | [https://demo.hinan.telenet.co.jp/user/list](https://demo.hinan.telenet.co.jp/user/list)             |
+| 本部スタッフ (HQ Staff)         | [https://demo.hinan.telenet.co.jp/hq-staff/login](https://demo.hinan.telenet.co.jp/hq-staff/login)     |
+| システム管理者 (Admin)      | [https://demo.hinan.telenet.co.jp/admin/login](https://demo.hinan.telenet.co.jp/admin/login)         |
+| QR Registration Page     | [https://demo.hinan.telenet.co.jp/user/qr/app/place-list](https://demo.hinan.telenet.co.jp/user/qr/app/place-list) |
+| 遠離者登録 Page (External) | [https://demo.hinan.telenet.co.jp/user/external](https://demo.hinan.telenet.co.jp/user/external)     |
+| 遠離者検索 Page       | [https://demo.hinan.telenet.co.jp/user/public-evacuees](https://demo.hinan.telenet.co.jp/user/public-evacuees) |
+| 遠離所 Map              | [https://demo.hinan.telenet.co.jp/user/map](https://demo.hinan.telenet.co.jp/user/map)                 |
 
-個人情報の取り扱いに同意 (Check required)
+---
 
-公開情報の可否 (Optional)
+## 🗂 Additional Flows and Functions from 操作マニュアル
 
-Upon completion:
+### 🏠 Shelter Registration (Admin Panel)
+1. Login to `/admin/login`
+2. Go to “避難所マスタ管理”
+3. Click “新規登録”
+4. Fill fields:
+   - Name, Area, Address
+   - Geo coordinates
+   - Capacity, Status, Visibility
+5. Save using “登録する”
+6. Edit/delete by selecting shelter name
+7. Perform 一括退所 (mass check-out) for closure prep
 
-A QRコード付き登録画面 is shown.
+### 👥 Staff-Side Evacuee Registration
+1. Access `/user/list`, select shelter
+2. Tap menu → スタッフ画面へ
+3. Click “避難者一覧”
+4. Press “新規登録”
+5. Select household size
+6. Fill name, address, age, sex, care needs
+7. Confirm and submit → generates evacuee profile
+8. Use “退所手続き” to check-out
 
-Evacuees can download/save this QR and bring it to the shelter for final admission.
+### 🧾 Pre-Registered Evacuee Check-In
+1. Click “避難前登録者一覧”
+2. Search via name or QR code scan
+3. Confirm info, press “入所” to check them in
 
-💳 2. 身分証（マイナンバーカード・運転免許証）による登録
-Staff uses a スキャナー to scan printed info on ID cards.
+### 🚫 Manual Anonymous Registration
+1. Use “入所者数登録” option
+2. Add number of evacuees without personal data
+3. Click “更新する” to apply
 
-Process:
+### 📦 Material Request by Staff
+1. Go to “必要物資登録”
+2. Enter quantity (use + / - )
+3. Scroll down and submit using “リクエストする”
 
-Click 新規登録
+### 📊 Statistics and Logs (HQ/Admin)
+- “統計” shows:
+  - Current shelter congestion
+  - Care-needed evacuee count
+- “避難所状況履歴” logs events over time by shelter
 
-Select the number of evacuees
+### 🧑‍💼 Staff Role Management (Admin Only)
+- Manage:
+  - 避難所スタッフ (Field)
+  - 本部スタッフ (HQ)
+  - 管理者 (Admin)
+- Use CSV import/export for bulk actions
+- View login history per user
 
-Click 身分証スキャン and place the card correctly
+### ⚙ System Settings
+- “問診マスタ管理”: Edit health/care questionnaires
+- “物資マスタ管理”: Add/remove item names and units
+- “要配慮者事項”: Define special needs categories
+- “環境設定”: UI map settings, language, logo, etc.
 
-Data is read (Name, DOB, Address auto-filled)
+---
 
-Add remaining data (Gender, Health info, Support needs)
+## ✅ Summary
+Now includes all process flows from both demo (PPT) and operational (Word) manuals:
+- Shelter creation
+- Registration via QR, ID, smartphone
+- Staff and anonymous entries
+- Exit processing
+- HQ insights
+- Master and environment config
 
-Review → 同意チェック → 登録
+Let me know if you want PDF export, flowcharts, or visual SOP templates!
 
-Generates a 管理番号, needed for退所
 
-Multiple evacuees in a household can be entered consecutively
-
-📄 3. QRコードによる登録
-For users who already have a pre-issued QRカード with personal info
-
-Process:
-
-Click 新規登録
-
-Click QRスキャン
-
-Use ハンディスキャナー about 10cm from the card
-
-Name, phone, address auto-fill
-
-Continue with health/support data
-
-同意 → 確認 → 登録
-
-🧍 4. 手動入力 (Manual Input by Staff)
-Used if evacuee has no ID/QR or technical issue occurs
-
-Staff manually inputs all fields:
-
-Name, Address, DOB, Phone, Gender, Health/Support details
-
-This method is accessible via:
-
-新規登録 button in the スタッフ画面
-
-Follows same flow as other methods (review, consent, confirm)
-
-📌 After Registration
-The evacuee appears in the 避難者一覧
-
-Staff can view or edit their profile
-
-退所処理 can be done later via 退所手続き
 below are page urls
 
 
