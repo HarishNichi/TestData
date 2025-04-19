@@ -82,6 +82,9 @@ Staff can view or edit their profile
 
 退所処理 can be done later via 退所手続き
 below are page urls
+
+
+
 const pageTitles_en = {
         // Admin URLs  
         "/admin/login": "Admin - Login",
