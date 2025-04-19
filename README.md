@@ -90,6 +90,9 @@ The system supports:
 
 ---
 
+## ✅ Steps to register 
+    https://demo.hinan.telenet.co.jp/user/list ==> https://demo.hinan.telenet.co.jp/user/dashboard ==> https://demo.hinan.telenet.co.jp/user/register/member/ ==>
+    https://demo.hinan.telenet.co.jp/user/register
 ## ✅ Summary
 Now includes all process flows from both demo (PPT) and operational (Word) manuals:
 - Shelter creation
